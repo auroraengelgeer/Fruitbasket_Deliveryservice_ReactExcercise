@@ -20,3 +20,11 @@
     align-items: center;
 }
 
+.resetButton {
+    margin: 10px 25px;
+    width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    font-size: 20px;
+}

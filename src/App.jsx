@@ -19,6 +19,15 @@ function App() {
         });
     }
 
+    function resetButton() {
+        setCounters({
+            strawberry: 0,
+            banana: 0,
+            apple: 0,
+            kiwi: 0,
+        })
+    }
+
     console.log(counters)
 
     return (
@@ -88,6 +97,7 @@ function App() {
                         </button>
                     </div>
                 </article>
+                <button type="button" className="resetButton" onClick={resetButton}>Reset</button>
             </main>
         </>
     )
