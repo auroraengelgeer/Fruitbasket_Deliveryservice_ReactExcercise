@@ -1,6 +1,7 @@
 import './App.css'
 import React, {useState} from "react";
 import {useForm} from "react-hook-form";
+import InputComponent from "./components/InputComponent.jsx";
 
 function App() {
 
@@ -32,7 +33,7 @@ function App() {
         })
     }
 
-    function onFormSubmit(data) {
+    function handleFormSubmit(data) {
         console.log("Form data:", data);
         console.log("Fruit counters:", counters)
     }
@@ -107,7 +108,17 @@ function App() {
                 </article>
                 <button type="button" className="resetButton" onClick={resetButton}>Reset</button>
 
-                <form onSubmit={handleSubmit(onFormSubmit)}>
+                <form onSubmit={handleSubmit(handleFormSubmit)}>
+
+                    <InputComponent
+                        inputType="text"
+                        inputId="firstName-field"
+                        inputName="firstName"
+                        inputLabel="Voornaam"
+                        register={register}
+                        inputClassName="form-section-wrapper"
+                        />
+
                     <div className="form-section-wrapper">
                         <label htmlFor="firstName">
                             Voornaam
