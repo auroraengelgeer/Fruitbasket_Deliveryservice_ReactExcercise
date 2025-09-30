@@ -1,7 +1,8 @@
 import './App.css'
 import React, {useState} from "react";
 import {useForm} from "react-hook-form";
-import InputComponent from "./components/InputComponent.jsx";
+import InputComponent from "./components/form components/InputComponent.jsx";
+import SelectComponent from "./components/form components/SelectComponent.jsx";
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
     });
 
     const {handleSubmit, register} = useForm({
-        mode:"onSubmit"
+        mode: "onSubmit"
     });
 
     function handleOnClick(fruit, type) {
@@ -117,7 +118,7 @@ function App() {
                         inputLabel="Voornaam"
                         register={register}
                         inputClassName="form-section-wrapper"
-                        />
+                    />
                     <InputComponent
                         inputType="text"
                         inputId="lastName-field"
@@ -136,30 +137,30 @@ function App() {
                         min={1}
                         max={100}
                     />
+                    <InputComponent
+                        inputType="text"
+                        inputId="postcode-field"
+                        inputName="postcode"
+                        inputLabel="Postcode"
+                        register={register}
+                        inputClassName="form-section-wrapper"
+                    />
 
-                    <div className="form-section-wrapper">
-                        <label htmlFor="postcode">
-                            Postcode
-                            <input
-                                type="text"
-                                id="postcode-field"
-                                {...register("postcode")}
-                            />
-                        </label>
-                    </div>
-                    <div className="form-section-wrapper">
-                        <label htmlFor="deliveryFrequency">
-                            Bezorgfrequentie
-                            <select
-                                {...register("deliveryFrequency")}
-                                id="deliveryFrequency-field">
-                                <option value="iedereWeek">Iedere week</option>
-                                <option value="omDeWeek">Om de week</option>
-                                <option value="iedereMaand">Iedere maand</option>
-                            </select>
 
-                        </label>
-                    </div>
+                    <SelectComponent
+                        selectClassName="form-section-wrapper"
+                        selectLabel="Bezorgfrequentie"
+                        selectId="deliveryFrequency-field"
+                        selectName="deliveryFrequency"
+                        options={[
+                            {value: "iedereWeek", label: "Iedere week"},
+                            {value: "omDeWeek", label: "Om de week"},
+                            {value: "iedereMaand", label: "Iedere maand"},
+                        ]}
+                        register={register}
+                    />
+
+
                     <div className="radio-button-wrapper">
                         <input
                             type="radio"
