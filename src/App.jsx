@@ -11,6 +11,9 @@ function App() {
         kiwi: 0,
     });
 
+    const {handleSubmit, register} = useForm({
+        mode:"onSubmit"
+    });
 
     function handleOnClick(fruit, type) {
         setCounters({
@@ -29,7 +32,11 @@ function App() {
         })
     }
 
-    console.log(counters)
+    function onFormSubmit(data) {
+        console.log("Form data:", data);
+        console.log("Fruit counters:", counters)
+    }
+
 
     return (
         <>
@@ -100,14 +107,14 @@ function App() {
                 </article>
                 <button type="button" className="resetButton" onClick={resetButton}>Reset</button>
 
-                <form>
+                <form onSubmit={handleSubmit(onFormSubmit)}>
                     <div className="form-section-wrapper">
                         <label htmlFor="firstName">
                             Voornaam
                             <input
                                 type="text"
-                                name="firstName"
                                 id="firstName-field"
+                                {...register("firstName")}
                             />
                         </label>
                     </div>
@@ -116,8 +123,8 @@ function App() {
                             Achternaam
                             <input
                                 type="text"
-                                name="lastName"
                                 id="lastName-field"
+                                {...register("lastName")}
                             />
                         </label>
                     </div>
@@ -126,10 +133,10 @@ function App() {
                             Leeftijd
                             <input
                                 type="number"
-                                name="age"
                                 id="age-field"
                                 min={1}
                                 max={100}
+                                {...register("age")}
                             />
                         </label>
                     </div>
@@ -138,8 +145,8 @@ function App() {
                             Postcode
                             <input
                                 type="text"
-                                name="postcode"
                                 id="postcode-field"
+                                {...register("postcode")}
                             />
                         </label>
                     </div>
@@ -147,45 +154,59 @@ function App() {
                         <label htmlFor="deliveryFrequency">
                             Bezorgfrequentie
                             <select
-                                name="deliveryFrequency"
+                                {...register("deliveryFrequency")}
                                 id="deliveryFrequency-field">
                                 <option value="iedereWeek">Iedere week</option>
                                 <option value="omDeWeek">Om de week</option>
                                 <option value="iedereMaand">Iedere maand</option>
                             </select>
 
-                </label>
+                        </label>
                     </div>
-                <div className="radio-button-wrapper">
-                    <input type="radio" name="deliveryTime" id="deliveryTime-field" value="Overdag"/>
-                    <label htmlFor="timePeriod">Overdag</label>
-                    <input type="radio" name="deliveryTime" id="deliveryTime-field" value="'s Avonds"/>
-                    <label htmlFor="timePeriod">'s Avonds</label>
-                </div>
-                <div className="form-section-wrapper">
-
-                    <label htmlFor="comments">
-                        Opmerkingen
-                        <textarea
-                            name="comments"
-                            id="comments-field"
-                            rows={4}
-                            cols={50}
+                    <div className="radio-button-wrapper">
+                        <input
+                            type="radio"
+                            id="deliveryTime-field"
+                            value="Overdag"
+                            {...register("deliveryTime")}
                         />
-                    </label>
-                </div>
+                        <label htmlFor="timePeriod">Overdag</label>
+                        <input
+                            type="radio"
+                            id="deliveryTime-field"
+                            value="'s Avonds"
+                            {...register("deliveryTime")}
+                        />
+                        <label htmlFor="timePeriod">'s Avonds</label>
+                    </div>
+                    <div className="form-section-wrapper">
 
-                <div className="form-section-wrapper">
-                    <input type="checkbox" name="conditionsCheckbox" id="conditions-checkbox"/>
-                    <label htmlFor="conditionsCheckbox">Ik ga akkoord met de voorwaarden</label>
-                </div>
+                        <label htmlFor="comments">
+                            Opmerkingen
+                            <textarea
+                                id="comments-field"
+                                rows={4}
+                                cols={50}
+                                {...register("comments-field")}
+                            />
+                        </label>
+                    </div>
+
+                    <div className="form-section-wrapper">
+                        <input
+                            type="checkbox"
+                            id="conditions-checkbox"
+                            {...register("conditions-field")}
+                        />
+                        <label htmlFor="conditionsCheckbox">Ik ga akkoord met de voorwaarden</label>
+                    </div>
 
 
                     <button type="submit">Verzend</button>
                 </form>
             </main>
         </>
-)
+    )
 }
 
 export default App
