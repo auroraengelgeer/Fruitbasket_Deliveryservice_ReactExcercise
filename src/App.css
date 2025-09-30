@@ -49,3 +49,55 @@ body {
     border: 1px solid grey;
     font-size: 20px;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section-wrapper {
+    display: flex;
+    align-items: flex-start;
+    width: 600px;
+    margin: 10px 15px;
+}
+
+.form-section-wrapper textarea {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.form-section-wrapper label {
+    width: 400px;      /* vaste breedte voor labels */
+}
+
+input {
+    margin-left: 10px;
+}
+
+.form-section-wrapper select {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.form-section-wrapper input[type='checkbox'] {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.radio-button-wrapper {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.radio-button-wrapper label{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+form button {
+    margin: 10px 10px 10px 15px;
+    max-width: 80px;
+}

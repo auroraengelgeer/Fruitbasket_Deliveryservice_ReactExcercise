@@ -1,5 +1,6 @@
 import './App.css'
 import React, {useState} from "react";
+import {useForm} from "react-hook-form";
 
 function App() {
 
@@ -98,9 +99,93 @@ function App() {
                     </div>
                 </article>
                 <button type="button" className="resetButton" onClick={resetButton}>Reset</button>
+
+                <form>
+                    <div className="form-section-wrapper">
+                        <label htmlFor="firstName">
+                            Voornaam
+                            <input
+                                type="text"
+                                name="firstName"
+                                id="firstName-field"
+                            />
+                        </label>
+                    </div>
+                    <div className="form-section-wrapper">
+                        <label htmlFor="lastName">
+                            Achternaam
+                            <input
+                                type="text"
+                                name="lastName"
+                                id="lastName-field"
+                            />
+                        </label>
+                    </div>
+                    <div className="form-section-wrapper">
+                        <label htmlFor="age">
+                            Leeftijd
+                            <input
+                                type="number"
+                                name="age"
+                                id="age-field"
+                                min={1}
+                                max={100}
+                            />
+                        </label>
+                    </div>
+                    <div className="form-section-wrapper">
+                        <label htmlFor="postcode">
+                            Postcode
+                            <input
+                                type="text"
+                                name="postcode"
+                                id="postcode-field"
+                            />
+                        </label>
+                    </div>
+                    <div className="form-section-wrapper">
+                        <label htmlFor="deliveryFrequency">
+                            Bezorgfrequentie
+                            <select
+                                name="deliveryFrequency"
+                                id="deliveryFrequency-field">
+                                <option value="iedereWeek">Iedere week</option>
+                                <option value="omDeWeek">Om de week</option>
+                                <option value="iedereMaand">Iedere maand</option>
+                            </select>
+
+                </label>
+                    </div>
+                <div className="radio-button-wrapper">
+                    <input type="radio" name="deliveryTime" id="deliveryTime-field" value="Overdag"/>
+                    <label htmlFor="timePeriod">Overdag</label>
+                    <input type="radio" name="deliveryTime" id="deliveryTime-field" value="'s Avonds"/>
+                    <label htmlFor="timePeriod">'s Avonds</label>
+                </div>
+                <div className="form-section-wrapper">
+
+                    <label htmlFor="comments">
+                        Opmerkingen
+                        <textarea
+                            name="comments"
+                            id="comments-field"
+                            rows={4}
+                            cols={50}
+                        />
+                    </label>
+                </div>
+
+                <div className="form-section-wrapper">
+                    <input type="checkbox" name="conditionsCheckbox" id="conditions-checkbox"/>
+                    <label htmlFor="conditionsCheckbox">Ik ga akkoord met de voorwaarden</label>
+                </div>
+
+
+                    <button type="submit">Verzend</button>
+                </form>
             </main>
         </>
-    )
+)
 }
 
 export default App
