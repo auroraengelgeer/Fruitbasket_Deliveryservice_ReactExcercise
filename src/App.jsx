@@ -118,39 +118,25 @@ function App() {
                         register={register}
                         inputClassName="form-section-wrapper"
                         />
+                    <InputComponent
+                        inputType="text"
+                        inputId="lastName-field"
+                        inputName="lastName"
+                        inputLabel="Achternaam"
+                        register={register}
+                        inputClassName="form-section-wrapper"
+                    />
+                    <InputComponent
+                        inputType="number"
+                        inputId="age-field"
+                        inputName="age"
+                        inputLabel="Leeftijd"
+                        register={register}
+                        inputClassName="form-section-wrapper"
+                        min={1}
+                        max={100}
+                    />
 
-                    <div className="form-section-wrapper">
-                        <label htmlFor="firstName">
-                            Voornaam
-                            <input
-                                type="text"
-                                id="firstName-field"
-                                {...register("firstName")}
-                            />
-                        </label>
-                    </div>
-                    <div className="form-section-wrapper">
-                        <label htmlFor="lastName">
-                            Achternaam
-                            <input
-                                type="text"
-                                id="lastName-field"
-                                {...register("lastName")}
-                            />
-                        </label>
-                    </div>
-                    <div className="form-section-wrapper">
-                        <label htmlFor="age">
-                            Leeftijd
-                            <input
-                                type="number"
-                                id="age-field"
-                                min={1}
-                                max={100}
-                                {...register("age")}
-                            />
-                        </label>
-                    </div>
                     <div className="form-section-wrapper">
                         <label htmlFor="postcode">
                             Postcode
